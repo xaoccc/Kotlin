@@ -16,5 +16,11 @@ fun main() {
     println("banana".filter { it != 'a' })
     // keep only 'a' characters from the string
     println("banana".filter { it == 'a' })
+    println(firstName.uppercase().reversed() + " " + lastName.uppercase().reversed())
+    println(firstName.length)
+    println(firstName[2])
+
+    // All methods are here in the left panel under kotlin.text:
+    // https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/
 
 }

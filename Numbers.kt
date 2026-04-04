@@ -13,5 +13,8 @@ fun main() {
     println("We can use float numbers as well:")
     println("The area is ${Math.PI * r * r}")
 
+    // All math methods are here:
+    // https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.math/
+
 }
 
