@@ -1,5 +1,6 @@
 package com.example.myfirstapp
 
+import android.R
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -43,12 +44,19 @@ class MainActivity : ComponentActivity() {
                         Text(text = "Open YouTube")
                     }
                     Button (onClick = {
-                        Intent(Intent.ACTION_MAIN).also{
-                            it.`package` = "com.google.android.gm"
-                            startActivity(it)
+                        val intent = Intent(Intent.ACTION_SEND).apply{
+                            type = "text/plain"
+                            putExtra(Intent.EXTRA_EMAIL, arrayOf("xaocccc@gmail.com"))
+                            putExtra(Intent.EXTRA_SUBJECT, arrayOf("Hello"))
+                            putExtra(Intent.EXTRA_TEXT, arrayOf("Do you want to learn java?"))
+
                         }
-                    }) {
-                        Text(text = "Open Gmail")
+                        if (intent.resolveActivity(packageManager) != null) {
+                            startActivity(intent)
+                        }
+                    })
+                    {
+                        Text(text = "Send an email")
                     }
                 }
 
