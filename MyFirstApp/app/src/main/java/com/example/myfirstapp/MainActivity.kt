@@ -34,7 +34,24 @@ class MainActivity : ComponentActivity() {
                     }) {
                         Text(text = "Submit")
                     }
+                    Button (onClick = {
+                        Intent(Intent.ACTION_MAIN).also{
+                            it.`package` = "com.google.android.youtube"
+                            startActivity(it)
+                        }
+                    }) {
+                        Text(text = "Open YouTube")
+                    }
+                    Button (onClick = {
+                        Intent(Intent.ACTION_MAIN).also{
+                            it.`package` = "com.google.android.gm"
+                            startActivity(it)
+                        }
+                    }) {
+                        Text(text = "Open Gmail")
+                    }
                 }
+
 
             }
         }
