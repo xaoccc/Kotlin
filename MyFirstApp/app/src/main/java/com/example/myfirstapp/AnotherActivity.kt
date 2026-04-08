@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.myfirstapp.ui.theme.MyFirstAppTheme
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 
 class AnotherActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
