@@ -1,5 +1,6 @@
 package com.example.mysecondapp
 
+import android.annotation.SuppressLint
 import android.content.BroadcastReceiver
 import android.content.Intent
 import android.content.IntentFilter
@@ -23,7 +24,9 @@ import com.example.mysecondapp.ui.theme.BroadcastTheme
 class MainActivity : ComponentActivity() {
 
     private val airplaneModeReceiver = AirPlaneModeReceiver()
+    private val testReceiver = ThirdAppReceiver()
 
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -34,6 +37,10 @@ class MainActivity : ComponentActivity() {
         registerReceiver(
             airplaneModeReceiver,
             IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+        )
+        registerReceiver(
+            testReceiver,
+            IntentFilter("CUSTOM_ACTION")
         )
         setContent {
             BroadcastTheme {
@@ -77,6 +84,7 @@ class MainActivity : ComponentActivity() {
     override fun onDestroy() {
         super.onDestroy()
         unregisterReceiver(airplaneModeReceiver)
+        unregisterReceiver(testReceiver)
     }
 }
 

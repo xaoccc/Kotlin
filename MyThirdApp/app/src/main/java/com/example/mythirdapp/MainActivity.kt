@@ -30,11 +30,18 @@ class MainActivity : ComponentActivity() {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Button (onClick = {
-                        Intent(applicationContext, SecondActivity::class.java).also{
+                        val intent = Intent("CUSTOM_ACTION").apply { setPackage("com.example.mysecondapp")}
+                        sendBroadcast(intent)
+//                        }
+                    }) {
+                        Text(text = "Send Broadcast")
+                    }
+                    Button (onClick = {
+                            Intent(applicationContext, SecondActivity::class.java).also{
                             startActivity(it)
                         }
                     }) {
-                        Text(text = "Start Second Activity")
+                        Text(text = "Check messages")
                     }
                 }
             }
